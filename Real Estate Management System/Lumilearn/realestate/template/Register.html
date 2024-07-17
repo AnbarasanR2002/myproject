@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register here</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #444;
+            margin-top: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        input[type="email"],
+        select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100px;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #4cae4c;
+        }
+
+        hr {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        center {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Register here</h1>
+        <hr>
+        <form method = "POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" placeholder="Enter your Name"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" placeholder="Enter your password"></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" name="confirm_password" placeholder="Confirm your password"></td>
+                </tr>
+                <tr>
+                    <td>Contact No:</td>
+                    <td><input type="number" name="contactNo" placeholder="Enter your Number"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name ="email" placeholder="Enter your email"></td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>
+                        <select name="role" id="role" name="role">
+                            <option>select a role</option>
+                            <option>Admin</option>
+                            <option>User</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Register">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <script>
+        window.onload = function() {
+            var messages = document.getElementById('messages');
+            if (messages) {
+                alert(messages.innerText);
+            }
+        };
+        </script>
+
+    <!-- Hidden div to hold messages for JavaScript to read -->
+    {% if messages %}
+        <div id="messages" style="display:none;">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    </center>
+</body>
+</html>

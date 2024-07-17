@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plots Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #444;
+            margin-top: 20px;
+        }
+
+        hr {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .menu {
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .menu td {
+            padding: 10px 15px;
+        }
+
+        .menu a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100px;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #4cae4c;
+        }
+
+        center {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table class="menu">
+            <tr>
+                <td><h2><a href="{% url 'Plotinfo' %}">Plot Information</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'Viewed' %}">Client Requsition Form</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'display_bi' %}">Booking Details</a></h2></td>
+            </tr>
+        </table>
+        <h1>Plots Information</h1>
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Area Name:</td>
+                    <td><input type="text" name="area_name"></td>
+                </tr>
+                <tr>
+                    <td>Number of plots available:</td>
+                    <td><input type="number" name="No_of_plots"></td>
+                </tr>
+                <tr>
+                    <td>Square feet rate:</td>
+                    <td><input type="number" name="square_feet_rate"></td>
+                </tr>
+                <tr>
+                    <td>Amenities:</td>
+                    <td>
+                        <input type="checkbox" name="amenities" value="Hospital">Hospital
+                        <input type="checkbox" name="amenities" value="Bus Stand">Bus Stand
+                        <input type="checkbox" name="amenities" value="Railway Station">Railway Station
+                        <input type="checkbox" name="amenities" value="Airport">Airport
+                        <input type="checkbox" name="amenities" value="CBSE School">CBSE School
+                        <input type="checkbox" name="amenities" value="Playground">Playground
+                        <input type="checkbox" name="amenities" value="Departmental Store">Departmental Store
+                        <input type="checkbox" name="amenities" value="Cinema Theatre">Cinema Theatre
+                        <input type="checkbox" name="amenities" value="Market">Market
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

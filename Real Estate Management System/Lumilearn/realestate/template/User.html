@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #444;
+            margin-top: 20px;
+        }
+
+        hr {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .menu {
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .menu td {
+            padding: 10px 15px;
+        }
+
+        .menu a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        center {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>USER</h1>
+        <hr>
+        <table class="menu">
+            <tr>
+                <td><h2><a href="{% url 'Plotinfo' %}">Plot Information</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'Viewed' %}">Client Requsition Form</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'display_bi' %}">Booking Details</a></h2></td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

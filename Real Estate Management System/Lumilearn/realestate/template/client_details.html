@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        th, td:first-child {
+            padding-left: 20px;
+        }
+        th, td:last-child {
+            padding-right: 20px;
+        }
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #f2f2f2;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+<table class="menu">
+  <tr>
+    <td><h2><a href="{% url 'Client' %}">Client Registration</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'Seller' %}">Seller Registration</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'PlotDetails' %}">Plot Details</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'display_plotdetails' %}">Managing Property</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'BI' %}">Booking Information</a></h2></td>
+  </tr>
+</table>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>father_name</th>
+        <th>age</th>
+        <th>gender</th>
+        <th>address</th>
+        <th>qualification</th>
+        <th>occupation</th>
+        <th>mobile</th>
+        <th>email</th>
+        <th>account_no</th>
+        <th>ifsc_code</th>
+        <th>bank_name</th>
+        <th>branch_name</th>
+        <th>plots_purchased</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in run %}
+    <tr>
+        <td>{{ x.name }}</td>
+        <td>{{ x.father_name }}</td>
+        <td>{{ x.age }}</td>
+        <td>{{ x.gender }}</td>
+        <td>{{ x.address }}</td>
+        <td>{{ x.qualification }}</td>
+        <td>{{ x.occupation }}</td>
+        <td>{{ x.mobile }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.account_no }}</td>
+        <td>{{ x.ifsc_code }}</td>
+        <td>{{ x.bank_name }}</td>
+        <td>{{ x.branch_name }}</td>
+        <td>{{ x.plots_purchased }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

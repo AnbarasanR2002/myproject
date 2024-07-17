@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<table class="menu">
+  <tr>
+    <td><h2><a href="{% url 'Client' %}">Client Registration</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'Seller' %}">Seller Registration</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'PlotDetails' %}">Plot Details</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'display_plotdetails' %}">Managing Property</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'BI' %}">Booking Information</a></h2></td>
+  </tr>
+</table>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>client_name</th>
+        <th>contact_no</th>
+        <th>area_name</th>
+        <th>booked_amount</th>
+        <th>reg_amt</th>
+        <th>reg_date</th>
+    </tr>
+    </thead>
+  <tbody>
+  {% for x in done %}
+    <tr>
+        <td>{{ x.client_name }}</td>
+        <td>{{ x.contact_no }}</td>
+        <td>{{ x.area_name }}</td>
+        <td>{{ x.booked_amount }}</td>
+        <td>{{ x.reg_amt }}</td>
+        <td>{{ x.reg_date }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>

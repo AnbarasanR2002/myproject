@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<table class="menu">
+  <tr>
+    <td><h2><a href="{% url 'Client' %}">Client Registration</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'Seller' %}">Seller Registration</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'PlotDetails' %}">Plot Details</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'display_plotdetails' %}">Managing Property</a></h2></td>
+    <td></td>
+    <td></td>
+    <td><h2><a href="{% url 'BI' %}">Booking Information</a></h2></td>
+  </tr>
+</table>
+<br>
+
+<table>
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>mobile</th>
+        <th>email</th>
+        <th>plot_seen</th>
+        <th>amount_Details</th>
+        <th>requirements</th>
+    </tr>
+    </thead>
+  <tbody>
+  {% for x in son %}
+    <tr>
+        <td>{{ x.name }}</td>
+        <td>{{ x.mobile }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.plot_seen }}</td>
+        <td>{{ x.amount_Details }}</td>
+        <td>{{ x.requirements }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>

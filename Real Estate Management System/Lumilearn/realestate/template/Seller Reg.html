@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seller Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #444;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #555;
+            margin: 20px 0;
+        }
+
+        hr {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .menu {
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .menu td {
+            padding: 10px 15px;
+        }
+
+        .menu a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100px;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #4cae4c;
+        }
+
+        center {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table class="menu">
+            <tr>
+                <td><h2><a href="{% url 'Client' %}">Client Registration</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'Seller' %}">Seller Registration</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'PlotDetails' %}">Plot Details</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'display_plotdetails' %}">Managing Property</a></h2></td>
+                <td></td>
+                <td></td>
+                <td><h2><a href="{% url 'BI' %}">Booking Information</a></h2></td>
+            </tr>
+        </table>
+        <h1>Seller Registration</h1>
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Company Details</h2>
+            <table>
+                <tr>
+                    <td>Company Name:</td>
+                    <td><input type="text" name="company_name" placeholder="Enter your company name"></td>
+                </tr>
+                <tr>
+                    <td>GST No:</td>
+                    <td><input type="number" name="gst_number" placeholder="Enter your GST number"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><textarea name="address" id="address" placeholder="Enter your address"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Contact No:</td>
+                    <td><input type="number" name="contact_no" placeholder="Enter your contact number"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" placeholder="Enter your email"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

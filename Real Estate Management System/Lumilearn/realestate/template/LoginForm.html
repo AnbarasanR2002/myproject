@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+</head>
+
+<body>
+    <center>
+        <h1>Real Estate Management System</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="user" placeholder="Enter your Name" required></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="user_pass" placeholder="Enter your password" required></td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>
+                        <select name="role" id="role" required>
+                            <option value="">select a role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Login"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Not yet a Member? <a href="{% url 'Register' %}">Register</a></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            window.onload = function() {
+            var messages = document.getElementById('messages');
+            if (messages) {
+                alert(messages.innerText);
+            }
+        };
+         </script>
+
+        <!-- Hidden div to hold messages for JavaScript to read -->
+        {% if messages %}
+            <div id="messages" style="display:none;">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </center>
+</body>
+</html>
